@@ -24,6 +24,12 @@ mongoose.connection.on('error',(err)=>{
     console.log("err connecting",err)
 })
 
+// registering the model
+require('./models/user')
+
+
+
+
 // // custom middleware
 // const customMiddleware = (req,res,next)=>{
 //     console.log("middleware executed!!")
