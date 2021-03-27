@@ -10,13 +10,17 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const {JWT_SECRET} = require('../keys')
 
-
+const requireLogin = require('../middleware/requireLogin')
 
 // // basic route testing
 // router.get('/',(req,res)=>{
 //     res.send("hello")
 // })
 
+// /test route fot creating middleware to verify token
+router.get('/protected',requireLogin, (req, res) => {
+    res.send("hello user")
+})
 
 // signup routes
 router.post('/signup', (req, res) => {
