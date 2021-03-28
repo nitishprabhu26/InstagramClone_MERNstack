@@ -8,11 +8,7 @@ const mongoose = require('mongoose')
 
 const {MONGOURI} = require('./keys')
 
-// registering the model
-require('./models/user')
 
-app.use(express.json())
-app.use(require('./routes/auth'))
 
 mongoose.connect(MONGOURI,{
     useNewUrlParser:true,
@@ -28,6 +24,16 @@ mongoose.connection.on('connected',()=>{
 mongoose.connection.on('error',(err)=>{
     console.log("err connecting",err)
 })
+
+
+// registering the model
+require('./models/user')
+require('./models/post')
+
+app.use(express.json())
+app.use(require('./routes/auth'))
+app.use(require('./routes/post'))
+
 
 
 // // custom middleware

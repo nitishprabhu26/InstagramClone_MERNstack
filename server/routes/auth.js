@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
 
-
 const mongoose = require('mongoose')
 const User = mongoose.model("User")
 
@@ -17,10 +16,10 @@ const requireLogin = require('../middleware/requireLogin')
 //     res.send("hello")
 // })
 
-// /test route fot creating middleware to verify token
-router.get('/protected',requireLogin, (req, res) => {
-    res.send("hello user")
-})
+// // /test route fot creating middleware to verify token
+// router.get('/protected',requireLogin, (req, res) => {
+//     res.send("hello user")
+// })
 
 // signup routes
 router.post('/signup', (req, res) => {

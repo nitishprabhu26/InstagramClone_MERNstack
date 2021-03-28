@@ -19,8 +19,10 @@ module.exports = (req,res,next)=>{
         const {_id} = payload
         User.findById(_id).then(userdata=>{
             req.user = userdata
+            // next has to be here, not outside. will take time to get response from database. 
+            // if it is placed down, next() will get executed before values are fetched from database
             next()
         })
-
+        // next()
     })
 }
